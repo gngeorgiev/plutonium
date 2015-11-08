@@ -177,7 +177,7 @@ func createApp(c *cli.Context) {
 	entryBuffer.WriteString("Type=Application\r\n")
 	entryBuffer.WriteString("NoDisplay=false\r\n")
 
-	electronPath := filepath.Join(pwd, "electron/electron")
+	electronPath := filepath.Join(pwd, "data/electron/electron")
 	execCmd := electronPath + " " + appPath
 	entryBuffer.WriteString("Exec=" + execCmd + "\r\n")
 
