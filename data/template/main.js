@@ -19,11 +19,12 @@ app.on('ready', function () {
         height: 600,
         icon: config.icon,
         title: config.name,
-        "web-preferences": {
+        'web-preferences': {
             javascript: true,
-            "web-security": false,
-            "experimental-features": true,
-            "page-visibility": true
+            'web-security': false,
+            'experimental-features': true,
+            'page-visibility': true,
+            'node-integration': false
         }
     });
 
