@@ -3,5 +3,6 @@ build:
 	mkdir -p dist
 	rm -rfv dist/*
 	mv main dist/plutonium
-	cp -R data dist/data
-	chmod -R 777 dist/
+	mkdir -p dist/data
+	cp -R data/template dist/data/template
+	unzip data/electron-v0.34.3-linux-x64.zip -d dist/data/electron

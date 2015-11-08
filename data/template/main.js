@@ -18,15 +18,18 @@ app.on('ready', function () {
         width: 800,
         height: 600,
         icon: config.icon,
-        title: config.name
+        title: config.name,
+        "web-preferences": {
+            javascript: true,
+            "web-security": false,
+            "experimental-features": true,
+            "page-visibility": true
+        }
     });
 
     win.loadUrl(config.url);
 
-    var webContents = win.webContents;
-    webContents.on('dom-ready', function () {
-        webContents.executeJavaScript("require('electron-cookies')");
-    });
+    //var webContents = win.webContents;
 
     win.on('closed', function () {
         win = null;

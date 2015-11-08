@@ -79,7 +79,8 @@ func createApp(c *cli.Context) {
 	icon := c.String("icon")
 
 	templatePath := filepath.Join(pwd, "data", "template")
-	appPath := filepath.Join(pwd, "Applications", name)
+	localPath := filepath.Join(os.Getenv("HOME"), ".local")
+	appPath := filepath.Join(localPath, "plutonium", "Applications", name)
 
 	var err error
 	//copy the template to the new app dir
@@ -164,8 +165,7 @@ func createApp(c *cli.Context) {
 	}
 
 	//create the .desktop entry
-	home := os.Getenv("HOME")
-	desktopEntryPath := filepath.Join(home, ".local/share/applications", "plutonium-"+config.Name+".desktop")
+	desktopEntryPath := filepath.Join(localPath, "share/applications", "plutonium-"+config.Name+".desktop")
 	log.Println("Creating desktop entry in ", desktopEntryPath)
 	var entryBuffer bytes.Buffer
 	entryBuffer.WriteString("[Desktop Entry]\r\n")
